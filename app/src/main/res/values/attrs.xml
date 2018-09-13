@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="text_color" format="color" />
+    <declare-styleable name="THEditText">
+        <attr name="hint" format="string" />
+        <attr name="text_color"  />
+        <attr name="hint_text_color" format="color" />
+        <attr name="line_color" format="color" />
+        <attr name="line_height" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="THNextButton">
+        <attr name="text_color"  />
+        <attr name="text_size" format="dimension"/>
+        <attr name="text" format="string"/>
+        <attr name="height" format="dimension"/>
+    </declare-styleable>
+</resources>

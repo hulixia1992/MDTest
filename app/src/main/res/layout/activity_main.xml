@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingEnd="10dp"
+        tools:context="tuhuan.mdtest.MainActivity">
+
+        <tuhuan.mdtest.weiget.THEditText
+            android:id="@+id/t_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:hint="输入密码"
+            app:hint_text_color="#aaaaaa"
+            app:line_color="@color/light_blue" />
+
+        <tuhuan.mdtest.weiget.THEditText
+            android:id="@+id/t_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/t_one"
+            android:layout_marginStart="10dp"
+            app:hint="输入密码"
+            app:hint_text_color="#aaaaaa"
+            app:line_color="@color/light_blue" />
+
+        <tuhuan.mdtest.loginbtn.THNextButton
+            android:id="@+id/th_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/t_two"
+            android:layout_marginStart="10dp"
+            android:elevation="1dp"
+            app:height="34dp"
+            app:text="点击登录"
+            app:text_color="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/th_next"
+            android:text="成功结束" />
+        <Button
+            android:id="@+id/btn_fail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_success"
+            android:text="失败结束" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_variety"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+</FrameLayout>
