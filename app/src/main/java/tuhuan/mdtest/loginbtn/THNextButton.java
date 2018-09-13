@@ -37,11 +37,11 @@ public class THNextButton extends RelativeLayout {
     private int screenH;
     private int minWidth;
 
-    public Button getBtnShare() {
-        return btnShare;
-    }
+//    public Button getBtnShare() {
+//        return btnShare;
+//    }
 
-    private Button btnShare;
+//    private Button btnShare;
 
     public CallBack getCallBack() {
         return callBack;
@@ -61,6 +61,10 @@ public class THNextButton extends RelativeLayout {
         super(context, attrs);
         initArrayType(context, attrs);
         initView(context);
+    }
+
+    public Button getBtnNext() {
+        return btnNext;
     }
 
     public THNextButton(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -109,7 +113,7 @@ public class THNextButton extends RelativeLayout {
 
         LayoutInflater.from(context).inflate(R.layout.layout_th_next_button, this, true);
         btnNext = findViewById(R.id.btn_next);
-        btnShare = findViewById(R.id.btn_share);
+        // btnShare = findViewById(R.id.btn_share);
         cvProgress = findViewById(R.id.cv_progress);
         rlNext = findViewById(R.id.rl_next);
         RelativeLayout.LayoutParams proressLP = new RelativeLayout.LayoutParams(height, height);
@@ -156,8 +160,8 @@ public class THNextButton extends RelativeLayout {
                     layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                     btnNext.setLayoutParams(layoutParams);
                     if (currentValue == 100) {
-                        btnShare.setVisibility(VISIBLE);
-                        btnShare.setLayoutParams(layoutParams);
+                        //      btnShare.setVisibility(VISIBLE);
+                        //     btnShare.setLayoutParams(layoutParams);
                         cvProgress.setVisibility(VISIBLE);
                         cvProgress.start();
                     }
@@ -222,11 +226,11 @@ public class THNextButton extends RelativeLayout {
                     layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
                     btnNext.setLayoutParams(layoutParams);
                     if (currentValue == 100) {
-                        btnShare.setVisibility(getBaseline());
+                        //    btnShare.setVisibility(getBaseline());
                         btnNext.setText(textContent);
                         //   btnShare.setLayoutParams(layoutParams);
-                       // cvProgress.setVisibility(VISIBLE);
-                     //   cvProgress.start();
+                        // cvProgress.setVisibility(VISIBLE);
+                        //   cvProgress.start();
                     }
                 }
             });

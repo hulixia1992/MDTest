@@ -5,18 +5,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_next_btn"
-        android:visibility="gone"
-        android:transitionName="shareName" />
 
     <Button
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="27dp"
+        android:transitionName="shareName"
         android:layout_centerInParent="true"
         android:background="@drawable/bg_next_btn" />
 

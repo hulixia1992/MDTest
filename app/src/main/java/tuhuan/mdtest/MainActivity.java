@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnLayoutChan
         findViewById(R.id.btn_success).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  nextButton.onSuccess();
-                nextButton.getBtnShare().setVisibility(View.VISIBLE);
+                nextButton.onSuccess();
+//                nextButton.getBtnNext().setVisibility(View.VISIBLE);
                 Intent intent = new Intent(MainActivity.this, SecendActivity.class);
                 startActivity(intent,
-                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, findViewById(R.id.btn_share), "shareName").toBundle());
+                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, findViewById(R.id.btn_next), "shareName").toBundle());
             }
         });
         findViewById(R.id.btn_fail).setOnClickListener(new View.OnClickListener() {
