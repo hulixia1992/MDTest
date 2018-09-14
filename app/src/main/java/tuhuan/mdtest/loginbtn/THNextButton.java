@@ -81,6 +81,11 @@ public class THNextButton extends RelativeLayout {
         return (int) (dpValue * scale + 0.5f);
     }
 
+
+    public int getViewHeight() {
+        return height;
+    }
+
     private void initArrayType(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.THNextButton);
         textColor = typedArray.getColor(R.styleable.THNextButton_text_color, Color.BLACK);
@@ -95,6 +100,12 @@ public class THNextButton extends RelativeLayout {
     public static int px2dip(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
+    }
+
+    public int[] getButtonLocation() {
+        int[] location = new int[2];
+        btnNext.getLocationInWindow(location);
+        return location;
     }
 
     /**

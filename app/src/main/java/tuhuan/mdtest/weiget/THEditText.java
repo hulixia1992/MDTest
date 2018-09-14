@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -24,6 +25,7 @@ public class THEditText extends LinearLayout {
     private String hint;
     private int textColor = Color.BLACK;
     private int hintTextColor = Color.GRAY;
+    private int textSize;
     private int lineColor = Color.parseColor("#562912");
     private int etContentWidth;
     private Context mContext;
@@ -103,6 +105,7 @@ public class THEditText extends LinearLayout {
         textColor = typedArray.getColor(R.styleable.THEditText_text_color, Color.BLACK);
         hintTextColor = typedArray.getColor(R.styleable.THEditText_hint_text_color, Color.GRAY);
         lineColor = typedArray.getColor(R.styleable.THEditText_line_color, Color.BLACK);
+        textSize = typedArray.getColor(R.styleable.THNextButton_text_size, dip2px(context, 14));
     }
 
     private void initView(final Context context) {
@@ -114,6 +117,7 @@ public class THEditText extends LinearLayout {
         etContent.setHint(hint);
         etContent.setTextColor(textColor);
         etContent.setHintTextColor(hintTextColor);
+        etContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         vLine.setBackgroundColor(lineColor);
         etContent.setOnSoftInputHide(new THInnerEditText.OnSoftInputHide() {
             @Override

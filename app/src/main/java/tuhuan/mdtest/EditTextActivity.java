@@ -1,5 +1,8 @@
 package tuhuan.mdtest;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,7 +11,7 @@ import tuhuan.mdtest.loginbtn.RoundView;
 import tuhuan.mdtest.loginbtn.THNextButton;
 import tuhuan.mdtest.weiget.THEditText;
 
-public class MainActivity extends AppCompatActivity implements View.OnLayoutChangeListener {
+public class EditTextActivity extends AppCompatActivity implements View.OnLayoutChangeListener {
     //Activity最外层的Layout视图
     private View activityRootView;
     //屏幕高度
@@ -23,38 +26,54 @@ public class MainActivity extends AppCompatActivity implements View.OnLayoutChan
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_edit_text);
+        init();
+    }
+
+    private void loginSuccess() {
+        nextButton.onSuccess();
+        RoundView roundView = findViewById(R.id.rl_variety);
+        //  if(Build)
+        //当api<21时
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            roundView.setLocation(nextButton.getButtonLocation());
+            roundView.setRedius(nextButton.getViewHeight());
+            roundView.setEndListener(new RoundView.OnEndListener() {
+                @Override
+                public void OnEnd() {
+                    Intent intent = new Intent(EditTextActivity.this, SecendActivity.class);
+                    startActivity(intent);
+
+                }
+            });
+            roundView.start();
+        } else {
+            //当api>=21时
+            Intent intent = new Intent(EditTextActivity.this, SecendActivity.class);
+            startActivity(intent,
+                    ActivityOptions.makeSceneTransitionAnimation(EditTextActivity.this, findViewById(R.id.btn_next), "shareName").toBundle());
+        }
+    }
+
+    private void init() {
         activityRootView = findViewById(R.id.root_layout);
-        thEditText1 = findViewById(R.id.t_one);
-        thEditText2 = findViewById(R.id.t_two);
-        nextButton = findViewById(R.id.th_next);
+        thEditText1 = findViewById(R.id.et_name);
+        thEditText2 = findViewById(R.id.et_pass);
+        nextButton = findViewById(R.id.btn_login);
         //获取屏幕高度
         screenHeight = this.getWindowManager().getDefaultDisplay().getHeight();
         keyHeight = screenHeight / 3;
         findViewById(R.id.btn_success).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextButton.onSuccess();
-                RoundView roundView = findViewById(R.id.rl_variety);
-                //  if(Build)
-                //当api<21时
-                roundView.setLocation(nextButton.getButtonLocation());
-                roundView.setRedius(nextButton.getViewHeight());
-                roundView.start();
-                //当api>=21时
-//                Intent intent = new Intent(MainActivity.this, SecendActivity.class);
-//                startActivity(intent,
-//                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, findViewById(R.id.btn_next), "shareName").toBundle());
+                loginSuccess();
             }
         });
         findViewById(R.id.btn_fail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 nextButton.onFail();
-//                nextButton.getBtnShare().setVisibility(View.VISIBLE);
-//                Intent intent = new Intent(MainActivity.this, SecendActivity.class);
-//                startActivity(intent,
-//                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, findViewById(R.id.btn_share), "shareName").toBundle());
+
             }
         });
         nextButton.setCallBack(new THNextButton.CallBack() {

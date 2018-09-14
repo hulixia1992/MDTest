@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/th_next"
             android:text="成功结束" />
+
         <Button
             android:id="@+id/btn_fail"
             android:layout_width="wrap_content"
@@ -56,11 +57,12 @@
             android:text="失败结束" />
 
     </RelativeLayout>
-
-    <RelativeLayout
+    <tuhuan.mdtest.loginbtn.RoundView
         android:id="@+id/rl_variety"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
 
-    </RelativeLayout>
+    </tuhuan.mdtest.loginbtn.RoundView>
+
 </FrameLayout>

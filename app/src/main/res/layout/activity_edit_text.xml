@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_layout"
+    android:background="@color/gray_ee"
+    tools:context="tuhuan.mdtest.EditTextActivity">
+
+    <tuhuan.mdtest.weiget.THEditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        app:hint="@string/input_name"
+        app:hint_text_color="@color/gray_aa"
+        app:line_color="@color/weight_blue"
+        app:text_color="@color/gray_33"
+        app:text_size="14dp" />
+
+    <tuhuan.mdtest.weiget.THEditText
+        android:id="@+id/et_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        app:hint="@string/input_pass"
+        app:hint_text_color="@color/gray_aa"
+        app:line_color="@color/weight_blue"
+        app:text_color="@color/gray_33"
+        app:text_size="14dp" />
+
+    <tuhuan.mdtest.loginbtn.THNextButton
+        android:id="@+id/btn_login"
+        android:layout_width="107dp"
+        android:layout_height="27dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/et_pass"
+        android:layout_marginTop="20dp"
+        app:height="27dp"
+        app:text="@string/login"
+        app:text_color="@android:color/white" />
+
+
+    <Button
+        android:id="@+id/btn_success"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:text="成功" />
+
+    <Button
+        android:id="@+id/btn_fail"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="失败" />
+</RelativeLayout>
+    <tuhuan.mdtest.loginbtn.RoundView
+        android:id="@+id/rl_variety"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+    </tuhuan.mdtest.loginbtn.RoundView>
+</FrameLayout>
